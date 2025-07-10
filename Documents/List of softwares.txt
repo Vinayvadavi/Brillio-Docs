@@ -1,0 +1,6 @@
+List of softwares:
+
+Putty
+Winscp
+notepad++
+editplus++
