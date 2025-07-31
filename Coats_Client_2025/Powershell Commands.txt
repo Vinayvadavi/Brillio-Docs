@@ -1,0 +1,44 @@
+🖥️ VM Management
+Task	PowerShell Command
+List all VMs	Get-VM
+Start a VM	Start-VM -Name "VMName"
+Stop a VM (gracefully)	Stop-VM -Name "VMName"
+Force stop a VM	Stop-VM -Name "VMName" -Force
+Suspend (pause) a VM	Suspend-VM -Name "VMName"
+Resume a VM	Resume-VM -Name "VMName"
+Create a new VM	New-VM -Name "VMName" -MemoryStartupBytes 2GB -Generation 2 -SwitchName "Virtual Switch"
+Rename a VM	Rename-VM -Name "OldName" -NewName "NewName"
+Remove a VM	Remove-VM -Name "VMName"
+
+💾 Virtual Hard Disk (VHD/VHDX)
+Task	PowerShell Command
+Create new VHDX	New-VHD -Path "C:\VMs\disk.vhdx" -SizeBytes 50GB -Dynamic
+Mount a VHD	Mount-VHD -Path "C:\VMs\disk.vhdx"
+Dismount a VHD	Dismount-VHD -Path "C:\VMs\disk.vhdx"
+Resize VHDX	Resize-VHD -Path "C:\VMs\disk.vhdx" -SizeBytes 100GB
+Convert VHD to VHDX	Convert-VHD -Path "C:\VMs\disk.vhd" -DestinationPath "C:\VMs\disk.vhdx"
+
+🌐 Networking
+Task	PowerShell Command
+List virtual switches	Get-VMSwitch
+Create external switch	New-VMSwitch -Name "ExternalSwitch" -NetAdapterName "Ethernet" -AllowManagementOS $true
+Assign switch to VM	Connect-VMNetworkAdapter -VMName "VMName" -SwitchName "ExternalSwitch"
+
+🧠 Memory and CPU
+Task	PowerShell Command
+Set dynamic memory	Set-VM -Name "VMName" -MemoryStartupBytes 1GB -DynamicMemoryEnabled $true -MinimumMemoryBytes 512MB -MaximumMemoryBytes 4GB
+Set static memory	Set-VM -Name "VMName" -MemoryStartupBytes 2GB
+Set VM processor count	Set-VMProcessor -VMName "VMName" -Count 4
+
+📝 Snapshots/Checkpoints
+Task	PowerShell Command
+Create checkpoint	Checkpoint-VM -Name "VMName" -SnapshotName "BeforeUpdate"
+List checkpoints	Get-VMSnapshot -VMName "VMName"
+Restore checkpoint	Restore-VMSnapshot -Name "BeforeUpdate" -VMName "VMName"
+Delete checkpoint	Remove-VMSnapshot -VMName "VMName" -Name "BeforeUpdate"
+
+🔧 Advanced / Host Tasks
+Task	PowerShell Command
+View VM state	`Get-VM
+View VM performance	Measure-VM -Name "VMName"
+View VM configuration	`Get-VM -Name "VMName"
