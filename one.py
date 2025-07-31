@@ -7,3 +7,7 @@ ADBDGPW10IOTS01	Server	10.128.24.70
 virtmgmt.msc
 
 ADMXOZHV04\C$\
+
+
+$Support Coats Project Jun-2025"
+
